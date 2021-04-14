@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -156,7 +157,63 @@ public class WebdriverUtility {
 		}
 			
 		}
+	
+
+/**
+ * Wait for elemet until it is displayed
+ * @param element
+ * @throws InterruptedException
+ */
+
+public void waitForElement(WebElement element) throws InterruptedException
+{
+	int count=0;
+	while(count<40)
+	
+		try
+		{
+			element.isDisplayed();
+			break;
+		}
+		catch(Exception e)
+		{
+			Thread.sleep(500);
+			count++;
+		}
+	
+}
+/**
+ * Wait for element and once availabel click on it.
+ * @param driver
+ * @param xpath
+ * @throws InterruptedException
+ */
+
+public void waitandclick(WebDriver driver,String xpath) throws InterruptedException
+{
+	
+int count=0;
+while(count<40)
+
+	try
+	{
+		driver.findElement(By.xpath(xpath)).click();
+		break;
 	}
+	catch(Exception e)
+	{
+		Thread.sleep(500);
+		count++;
+	}
+
+
+
+}
+}
+
+
+
+
 
 
 
